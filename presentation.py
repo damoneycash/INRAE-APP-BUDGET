@@ -1,8 +1,4 @@
 import streamlit as st
-from main_script import budget
-from main_script import depense
-from main_script import budget_disponible
-from main_script import nombre_mission
 import datetime
 from numpy import *
 from pandas import *
@@ -228,6 +224,25 @@ def data_expire1(drap1, drap):
         unique_data.append(unique_scientist_data)
 
     Sc_data = unique_data
+    budg = 0
+    for i in range(len(Sc_data_final)):
+        budg = budg + float(Sc_data_final[i][12])
+    budget = round(budg, 2)
+
+    dep = 0
+    for i in range(len(Sc_data_final)):
+        dep = dep + float(Sc_data_final[i][13])
+    depense = round(dep, 2)
+
+
+    budg_d = 0
+#print(Sc_data_final[len(Sc_data_final)-2][15])
+    for i in range(len(Sc_data_final)):
+    #print(Sc_data)
+        budg_d = budg_d + float(Sc_data_final[i][15])
+    budget_disponible = round(budg_d, 2)
+
+    nombre_mission = len(Sc_data_final)+1
     Urg = []
     Warn = []
     K = []
