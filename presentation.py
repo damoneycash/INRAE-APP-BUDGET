@@ -5,6 +5,12 @@ from pandas import *
 from openpyxl import *
 import glob2
 from os.path import splitext, basename
+def saut_ligne(i):
+    for i in range(int(i)):
+        st.write("")
+    return 
+
+
 
 def data_expire1(drap1, drap):
     e = str(datetime.datetime.today())
@@ -243,6 +249,12 @@ def data_expire1(drap1, drap):
     budget_disponible = round(budg_d, 2)
 
     nombre_mission = len(Sc_data_final)+1
+    saut_ligne(3)   
+    st.title("Quelques chiffre clés")
+    st.write("Le budget total est de", budget, "dont", depense, "ont deja ete depense")
+    st.write("Le budget total restant à répartir est:", budget_disponible)
+    st.write("Pour un nombre total de missions:", nombre_mission) 
+    saut_ligne(3)
     Urg = []
     Warn = []
     K = []
@@ -306,10 +318,6 @@ def data_expire1(drap1, drap):
     st.column_config.TextColumn(width="small")
     return
 
-def saut_ligne(i):
-    for i in range(int(i)):
-        st.write("")
-    return
 def main():
     st.write('<img class="Logo-etat" src="https://www.inrae.fr/themes/custom/inrae_socle/public/images/etat_logo.svg" alt="République française" width="138" height="146">',
              '<img class="Logo-site" src="https://www.inrae.fr/themes/custom/inrae_socle/logo.svg" alt="INRAE">',
@@ -319,11 +327,6 @@ def main():
     st.write("Attention cette application a été concue à partir de la page 2 : 'ps(12)' du fichier Excel : 'BPP Octobre 2022' !")
     st.write("Pour bien comprendre le fonctionnement de l'application veuillez vous référrez au document : 'Informations.txt' situé dans le dosier d'installation !")
     saut_ligne(3)   
-    st.title("Quelques chiffre clés")
-    st.write("Le budget total est de", budget, "dont", depense, "ont deja ete depense")
-    st.write("Le budget total restant à répartir est:", budget_disponible)
-    st.write("Pour un nombre total de missions:", nombre_mission) 
-    saut_ligne(3)
     st.title("Mission bientôt expirée")
     uploaded_file = st.file_uploader("Téléversez un fichier Excel", type=["xlsx", "xls"])
     if uploaded_file is not None:
