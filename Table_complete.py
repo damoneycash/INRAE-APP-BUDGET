@@ -5,7 +5,6 @@ from pandas import *
 from openpyxl import *
 import streamlit as st
 import datetime
-from main_script import table_complete1
 from os.path import splitext, basename
 
 def table_complete1(drap1, drap):
